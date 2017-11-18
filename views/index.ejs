@@ -1,0 +1,45 @@
+<!- view: index.ejs -->
+<% include ./header %>
+	<h2><%= title %></h2>
+
+	<form method="POST" action="/user">
+	<label>Id</label><br>
+	<input type="number" name="id"><br>
+	<label>Name</label><br>
+	<input type="text" name="name"><br>
+	<label>Age</label><br>
+	<input type="number" name="age"><br>
+	<label>Email</label><br>
+	<input type="text" name="email"><br><br>
+	<input type="submit" value="Add"> 
+</form>
+	
+
+<p>
+<br><br>
+<% users.forEach( function(user) { %>
+<li>ID :<%= user.id %>&nbsp;&nbsp;&nbsp;&nbsp; Name : <%= user.name %>&nbsp;&nbsp;&nbsp;&nbsp; Age : <%= user.age %>&nbsp;&nbsp;&nbsp;&nbsp; Email : <%= user.email %></li>
+<% }) %>
+<br><br>
+</p>
+<h2>Change</h2>
+<form method="POST" action="/user/:userId/change">
+	<label>Id</label><br>
+	<input type="number" name="id"><br>
+	<label>Name</label><br>
+	<input type="text" name="name"><br>
+	<label>Age</label><br>
+	<input type="number" name="age"><br>
+	<label>Email</label><br>
+	<input type="text" name="email"><br><br>
+	<input type="submit" value="Change"> 
+</form>
+	<br><br>
+	<h2>DELETE : input id</h2>
+	<form method="post" action="/user/:userId">
+	<label>Del</label><br>
+	<input type="number" name="id">
+	<input type="submit" name="Del">
+</form>
+
+<% include ./footer %>
